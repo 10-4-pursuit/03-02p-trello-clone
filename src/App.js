@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
+import Board from './components/Board';
+import Modal from './components/Modal';
+import ParentComponent from './components/ParentComponent';
+import Button from './components/common/Button';
+import InputField from './components/common/InputField';
+import Label from './components/common/Label';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* Your components and layout */}
+      <Board />
+      <Modal />
+      <ParentComponent />
+
+      {/* Example usage of Button, InputField, and Label */}
+      {/* You can remove or adjust these based on your actual application layout */}
+      <Button>Example Button</Button>
+      <InputField type="text" placeholder="Example Input" />
+      <Label htmlFor="exampleInput">Example Label</Label>
+      
+      {/* Rest of your components */}
     </div>
   );
-}
+};
 
 export default App;
+
+
