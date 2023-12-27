@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import Button from "./common/Button"; 
-import  InputField  from "./common/InputField"; 
+import  InputField from "./common/InputField"; 
 import Label from "./common/Label"; 
 import "./ParentComponent.css";
 import "./common/InputField.css"; 

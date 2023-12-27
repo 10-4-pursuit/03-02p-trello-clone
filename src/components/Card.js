@@ -2,7 +2,7 @@ import React from "react";
 import "./Card.css";
 import Button from "./common/Button";
 
-const Card = ({ cardData, cardDragStart, onEditCard, onDeleteCard }) => {
+const Card = ({ cardData, cardDragStart, onEditCard, onDeleteCard}) => {
   return (
     <div
       className="card"
@@ -39,6 +39,8 @@ const Card = ({ cardData, cardDragStart, onEditCard, onDeleteCard }) => {
         >
           Edit
         </Button>
+
+       
       </div>
     </div>
   );

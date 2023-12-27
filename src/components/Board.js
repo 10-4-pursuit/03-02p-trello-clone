@@ -4,6 +4,8 @@ import  useDragDrop  from "../hooks/useDragDrop";
 import  cardData  from "../data";
 import "./Board.css";
 
+
+
 const Board = () => {
   const [lists, setLists] = useState([
     { id: 1, title: 'To Do', cards: cardData.filter(card => card.listId === 1) },
@@ -28,13 +30,13 @@ const handleDeleteCard = (cardId) => {
   })));
 };
 
-const handleEditCard = (cardData) => {
-  console.log("Editing card:", cardData);
+const handleEditCard = (updatedCardData) => {
   setLists(prevLists => prevLists.map(list => ({
       ...list,
-      cards: list.cards.map(card => card.id === cardData.id ? cardData : card)
+      cards: list.cards.map(card => card.id === updatedCardData.id ? updatedCardData : card)
   })));
 };
+
 
 
 
