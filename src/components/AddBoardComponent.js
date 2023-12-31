@@ -7,15 +7,19 @@ import './common/Button.css';
 import './common/InputField.css';
 
 
-export const AddBoardComponent = () => {
+ const AddBoardComponent = () => {
     const { addBoard } = useBoard();
     const [boardName, setBoardName] = useState("");
 
     const hanldeAddBoard = () => {
         if(boardName.trim()){
-            addBoard({ title: boardName, cards: [], id: Date.now()});
+            addBoard({ title: boardName, cards: [], id: Date.now(), isDeleted: false, labels: [] });
             setBoardName('');
+        }else{
+            alert('Please Enter Board Name');
         }
+        
+
         
     }
 
@@ -32,3 +36,5 @@ export const AddBoardComponent = () => {
         </div>
     )
 }
+
+export default AddBoardComponent

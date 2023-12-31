@@ -1,26 +1,20 @@
-import { useState, createContext, useContext } from "react";
+import React, { createContext, useContext, useState } from 'react';
 
 export const BoardContext = createContext();
 
 export const BoardProvider = ({ children }) => {
   const [boards, setBoards] = useState([]);
 
-  const addBoard = (NewBoard) => {
-    setBoards([...boards, NewBoard]);
-  };
-
-  const contextValue = {
-    boards,
-    addBoard,
+  const addBoard = (newBoard) => {
+    setBoards([...boards, newBoard]);
   };
 
   return (
-    <BoardContext.Provider
-     value={contextValue}>
-    {children}
+    <BoardContext.Provider value={{ addBoard }}>
+      {children}
     </BoardContext.Provider>
-  )
-  
+  );
 };
 
 export const useBoard = () => useContext(BoardContext);
+
