@@ -10,6 +10,7 @@ const List = ({
   cards,
   onAddCard,
   onDeleteCard,
+  onEditCard,
   onCardDropped // Function to handle card drop logic
 }) => {
   const [, dropRef] = useDrop({
@@ -30,6 +31,7 @@ const List = ({
             key={card.id}
             cardData={card}
             onDeleteCard={onDeleteCard}
+            onEditCard={onEditCard}
           />
         ))}
         <AddCard listId={listId} onAddCard={onAddCard} />

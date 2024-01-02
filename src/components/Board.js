@@ -7,7 +7,7 @@ import "./Board.css";
 
 
 
-const Board = () => {
+const Board = ({ board}) => {
 
  
   const [lists, setLists] = useState([
@@ -59,12 +59,12 @@ const handleDeleteCard = (cardId) => {
   })));
 };
 
-const handleEditCard = (updatedCardData) => {
+const handleEditCard = (cardId, updatedCard) => {
   setLists(prevLists => prevLists.map(list => ({
       ...list,
-      cards: list.cards.map(card => card.id === updatedCardData.id ? updatedCardData : card)
+      cards: list.cards.map(card => card.id === cardId ? { ...card, ...updatedCard } : card)
   })));
-};
+}
 
 
 
@@ -74,7 +74,7 @@ const handleEditCard = (updatedCardData) => {
 
 return (
   <div className="board">
-    <h1>Board Title</h1>
+    <h1>Trello Board Clone</h1>
     {lists.map((list) => (
       <List
         key={list.id}
