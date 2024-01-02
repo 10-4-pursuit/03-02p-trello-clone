@@ -1,0 +1,62 @@
+.add-card-container {
+    margin: 10px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-card-container input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-card-label {
+    /* Styles for the label container */
+    margin-bottom: 10px;
+  }
+  
+  .label-name-input {
+    /* Styles for the label name input */
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .label-color-input {
+    /* Styles for the label color input */
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+  }
+  
+
+  .comment-container {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comment-container .input-field {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .comment-container .input-field:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+
+

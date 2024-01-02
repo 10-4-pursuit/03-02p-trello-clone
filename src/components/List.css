@@ -1,0 +1,14 @@
+
+
+.list {
+    width: 300px;
+    margin: 10px;
+    background-color: #f3f3f3;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cards-container {
+    margin-top: 10px;
+}

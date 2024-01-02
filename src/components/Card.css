@@ -1,0 +1,87 @@
+/* Card.css */
+
+.card {
+    /* Styles for the card container */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.card-priority {
+    /* Styles for the priority indicator */
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card-priority.low {
+    background-color: green;
+}
+
+.card-priority.medium {
+    background-color: orange;
+}
+
+.card-priority.high {
+    background-color: red;
+}
+
+.card-due-date {
+    /* Styles for the due date */
+    color: #666;
+    font-size: 0.8em;
+}
+
+.card-labels {
+    /* Styles for the label container */
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.card-label {
+    /* Styles for each label */
+    padding: 2px 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: 0.7em;
+    margin-bottom: 5px;
+}
+
+
+
+
+.priority-button{
+    border: none;
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.priority-color{
+    background-color: #f44336;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
