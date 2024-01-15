@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css';
 import Board from './components/Board';
+import List from './components/List';
 
 function App() {
 

@@ -1,6 +1,9 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import Card from "./Card"
+
+//THIS PROVIDES THE STYLING
 
 const Container = styled.div`
   background-color: #f4f5f7;
@@ -12,8 +15,6 @@ const Container = styled.div`
   scrollbar-width: none;
   border: 1px solid gray;
 `;
-
-
 
 const Title = styled.h3`
   padding: 8px;
@@ -43,12 +44,24 @@ export default function List ({ title, tasks, id }) {
       >
         {title}
       </Title>
-    <p>Peace!</p>
 
+      <Droppable droppableId={id}>
+      {(provided, snapshot) => (
+      <TaskList
+      ref={provided.innerRef}
+      {...provided.droppableProps}
+      isDraggingOver={snapshot.isDraggingOver}
+   >
+{tasks.map((task, index) => (
+              <Card key={index} index={index} task={task} />
+            ))}      
+        {provided.placeholder}
+      </TaskList>
+      )}
+      </Droppable>
 
     </Container>
     </>
-  )
-   
+  )  
   };
   

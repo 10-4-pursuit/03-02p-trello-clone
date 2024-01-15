@@ -10,12 +10,22 @@ export default function Board () {
     const [incomplete, setIncomplete] = useState([]);
 
     useEffect(() => {
-      fetch("https://jsonplaceholder.typicode.com/todos")
-        .then((response) => response.json())
-        .then((json) => {
-          setCompleted(json.filter((task) => task.completed));
-          setIncomplete(json.filter((task) => !task.completed));
-        });
+      try {
+        fetch("https://jsonplaceholder.typicode.com/posts")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((json) => {
+            setCompleted(json.filter((task) => task.completed));
+            setIncomplete(json.filter((task) => !task.completed));
+          });
+      } catch (error) {
+        console.error("Error fetching todos:", error);
+        // Handle the error gracefully, e.g., display an error message to the user
+      }
     }, []);
 
     const handleDragEnd = (result) => {
@@ -54,7 +64,7 @@ export default function Board () {
 <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "",
           alignItems: "center",
           flexDirection: "row",
         }}
