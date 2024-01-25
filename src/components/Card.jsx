@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { Avatar, Image } from "antd";
 import { faker } from '@faker-js/faker';
+import { Button, Modal, Box, Typography } from '@mui/material';
+import Cards from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import CardActions from '@mui/material/CardActions';
+import Collapse from '@mui/material/Collapse';
+import IconButton from '@mui/material/IconButton';
+import { red } from '@mui/material/colors';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ShareIcon from '@mui/icons-material/Share';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
 //THIS PROVIDES THE STYLING
@@ -22,6 +35,18 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 const TextContent = styled.div``;
 
 const Icons = styled.div`
@@ -34,7 +59,7 @@ const Icons = styled.div`
 function bgcolorChange(props) {
 
   return props.isDragging
-    ? "lightgreen"
+    ? "lightgray"
     : props.isDraggable
     ? props.isBacklog
       ? "#F2D7D5"
@@ -44,32 +69,16 @@ function bgcolorChange(props) {
     : "#EAF4FC";
 }
 
-function getRandomDate() {
-  const randomYear = faker.number.int({ min: 2024, max: 2024 }); // Adjust year range as needed
-  const randomMonth = faker.number.int({ min: 1, max: 12 });
-  const randomDay = faker.number.int({ min: 1, max: 28 }); // Assume max 28 days for simplicity
-
-  return `${randomYear}-${randomMonth.toString().padStart(2, '0')}-${randomDay.toString().padStart(2, '0')}`;
-}
-
-function getRandomLabels(labelsArray) {
-  const randomIndex = Math.floor(Math.random() * labelsArray.length); // Random index in the array
-  return labelsArray[randomIndex];
-}
-
 export default function Card ({task, index}) {
-
-  for (const [key, value] of Object.entries(task)) {
-    task.name = faker.person.fullName();
-  }
-
-  const randomDate = getRandomDate();
-  const labels = ["Urgent", "High Priority","Medium Priority", "Low Priority", "Optional"]
-  const randomLabels = getRandomLabels(labels);
-
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
   return (
+    <Cards sx={{ maxWidth: 345 }}>
     <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
     {(provided, snapshot) => (
+      
         <Container
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -97,10 +106,28 @@ export default function Card ({task, index}) {
             NAME:{task.name}
             </div>
             <div>
-            DUE DATE: {randomDate}
+            DUE DATE: {task.date}
             </div>
 <div>
-PRIORITY: {randomLabels}
+PRIORITY: {task.label}
+</div>
+<div>
+<Button onClick={handleOpen}>View Description</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            TITLE: {task.title}
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          DUE DATE: {task.date}
+          </Typography>
+        </Box>
+      </Modal>
 </div>
             </TextContent>
             </div>
@@ -114,7 +141,8 @@ PRIORITY: {randomLabels}
 
     </Container>
     )}
-        </Draggable>    
+        </Draggable> 
+        </Cards>   
   );
 };
 
