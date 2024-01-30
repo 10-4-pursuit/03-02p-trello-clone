@@ -18,7 +18,7 @@ This project aims to simulate the real-world application development process by 
 - **Cards**: Create a `Card` component to represent tasks or items.
 
 ### Card Data Requirements
-Each card should hold the following data:
+Each card should hold the foladdlowing data:
 - **Title**: A brief, descriptive title of the task or item.
 - **Description**: A more detailed explanation of what needs to be done.
 - **Comments**: An array of comments related to the task.
