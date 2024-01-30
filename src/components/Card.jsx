@@ -2,21 +2,8 @@ import React, { useState } from 'react';
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
 import { Avatar, Image } from "antd";
-import { faker } from '@faker-js/faker';
 import { Button, Modal, Box, Typography } from '@mui/material';
 import Cards from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-
 
 //THIS PROVIDES THE STYLING
 const Container = styled.div`
@@ -73,7 +60,7 @@ export default function Card ({task, index}) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  
+
   return (
     <Cards sx={{ maxWidth: 345 }}>
     <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
