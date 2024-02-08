@@ -8,6 +8,7 @@ import './common/InputField.css';
 
 
  const AddBoardComponent = () => {
+    console.log(useBoard());
     const { addBoard } = useBoard();
     const [boardName, setBoardName] = useState("");
 
